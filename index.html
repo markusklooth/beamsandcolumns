@@ -1,0 +1,326 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/bootstrap-1.2.0.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+<div class="modal" style="display:none">
+      <div class="modal-header">
+        <h3>Modal Heading</h3>
+        <a class="close" href="#">×</a>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a class="btn primary" href="#">Primary</a>
+        <a class="btn secondary" href="#">Secondary</a>
+</div>
+          
+        </div>  <div id="container">
+    <header>
+        <h1>Beams & Columns</h1>
+        <h2>CE438: Reinforced Concrete Design</h2>
+        <p>Designing and Analysis of Reinforced Concrete Beams</p>
+    </header>
+    <div id="main" role="main">
+        
+        <div class="concrete_box">
+            <!-- MENU -->
+            <ul class="pills helv" style="margin:10px 0 0 30px;">
+                <li class="active"><a href="#analysis">Analysis</a></li>
+                <li><a href="#design">Design</a></li>
+            </ul>
+            <div class="col_left">
+                <table class="variables">
+                    <thead>
+                        <tr>
+                            <td class="type"><b>Variable</b></td>
+                            <td style="width:160px;"><b>Value</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="type">M<sub>ultimate</sub></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" size="20" id="m_ultimate" style="width:70px;" value="2560.19">
+                                    <label class="add-on">" k</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">fc'</td>
+                            <td>
+                                <div class="input-append">
+                                <input type="text" style="width:70px;" id="fc" value="5" />
+                                <input type="hidden" id="fc_unit" value="ksi"/>
+                                <label class="add-on">ksi</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">fy</td>
+                            <td>
+                                <div class="input-append">
+                                <input type="text" style="width:70px;" id="fy" value="60" />
+                                <input type="hidden" id="fy_unit" value="ksi"/>
+                                <label class="add-on">ksi</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">b <div style="display:inline;font-weight:normal;">(beam width)</div></td>
+                            <td>
+                                <div class="input-append">
+                                <input type="text" style="width:70px;" id="beam_diameter" value="12" />
+                                <input type="hidden" id="beam_diameter_unit" value="in"/>
+                                <label class="add-on">in</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">d <div style="display:inline;font-weight:normal;">(height to rebars)</div></td>
+                            <td>
+                                <div class="input-append">
+                                <input type="text" style="width:70px;" id="height_rebars" value="18" />
+                                <input type="hidden" id="height_rebars_unit" value="in"/>
+                                <label class="add-on">in</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">h <div style="display:inline;font-weight:normal;">(beam height)</div></td>
+                            <td>
+                                <div class="input-append">
+                                <input type="text" style="width:70px;" id="beam_height" value="20" />
+                                <input type="hidden" id="beam_height_unit" value="in"/>
+                                <label class="add-on">in</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">Cover</td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" style="width:70px;" id="cover" value="1" />
+                                <input type="hidden" id="cover_unit" value="in"/>
+                                    <label class="add-on">in</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">φ</td>
+                            <td><input type="text" style="width:70px;" id="phi" value="0.9" /></td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- RESULTS -->
+            <div class="col_right">
+                <!-- rhow -->
+                <table id="results" class="variables noborder">
+                    <tbody>
+                        <tr>
+                            <td style="width:110px;">
+                                <p style="font-size:16px;">ρ<sub>min</sub></p>
+                                <div class="input-append" style="position:relative">
+                                    <input type="text" style="width:70px;" id="rhow_min" />
+                                    <label data-id="rhow_min_title" data-pos="above" class="add-on twip">
+                                        <input type="checkbox" id="rhow_min_fixed" class="checker">
+                                    </label>
+                                    
+                                    <div id="rhow_min_title" class="twipsy above" style="display:none">
+                                        <div class="twipsy-arrow"></div>
+                                        <div class="twipsy-inner">Fixed</div>
+                                    </div>                                    
+                                </div>
+                            </td>
+                            
+                            <td><span class="arrow">&lt;</span></td>
+                            
+                            <td style="width:110px;padding-bottom:10px;" class="rhowbox">
+                                <p style="font-size:16px;">ρ</p>
+                                <div class="input-append" style="position:relative">
+                                    <input type="text" style="width:70px;" id="rhow" />
+                                    <label data-id="rhow_title" data-pos="above" class="add-on twip">
+                                        <input type="checkbox" id="rhow_fixed" class="checker">
+                                    </label>
+                                    
+                                    <div id="rhow_title" class="twipsy above" style="display:none">
+                                        <div class="twipsy-arrow"></div>
+                                        <div class="twipsy-inner">Fixed</div>
+                                    </div>                                    
+                                </div>
+                            </td>
+                            
+                            <td><span class="arrow">&lt;</span></td>
+                            
+                            <td style="width:110px;">
+                                <p style="font-size:16px;">ρ<sub>max</sub></p>
+                                <div class="input-append" style="position:relative">
+                                    <input type="text" style="width:70px;" id="rhow_max"  />
+                                    <label data-id="rhow_max_title" data-pos="above" class="add-on twip">
+                                        <input type="checkbox" id="rhow_max_fixed" class="checker">
+                                    </label>
+                                    
+                                    <div id="rhow_max_title" class="twipsy above" style="display:none">
+                                        <div class="twipsy-arrow"></div>
+                                        <div class="twipsy-inner">Fixed</div>
+                                    </div>                                    
+
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+                <!-- other results -->
+                <table id="results" class="variables">
+                    <thead>
+                        <tr>
+                            <td colspan="2" class="type"><b>Results</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="type">ρ<sub>balanced</sub></td>
+                            <td>
+                                <p id="rhow_balanced">&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type">A<sub>steel<sub>required</sub></sub></td>
+                            <td>
+                                <div class="input-append" style="position:relative">
+                                    <input type="text" style="width:70px;" id="a_steel_required"  />
+                                    <label data-id="a_steel_required_title" data-pos="above" class="add-on twip">
+                                        <input type="checkbox" id="a_steel_required_fixed" class="checker">
+                                    </label>
+                                    
+                                    <div id="a_steel_required_title" class="twipsy above" style="display:none">
+                                        <div class="twipsy-arrow"></div>
+                                        <div class="twipsy-inner">Fixed</div>
+                                    </div>                                    
+                                </div>
+<!--                                 <p id="a_steel_required_text">&nbsp;</p> -->
+<!--                                 <input type="hidden" style="width:80px;" id="a_steel_required" /> -->
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+                
+                <div id="rhow_result" class="alert-message">&nbsp;</div>
+                <div class="pagination" style="display:none">
+                    <ul>
+                      <li class="active"><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">6</a></li>
+                      <li><a href="#">7</a></li>
+                      <li><a href="#">8</a></li>
+                      <li><a href="#">9</a></li>
+                      <li><a href="#" style="border:none">10</a></li>
+                    </ul>
+                </div>
+                <table class="zebra-striped">
+                    <thead>
+                      <tr>
+                        <th>Rebar <i>#</i></th>
+                        <th>Count</th>
+                        <th>Spacing <i>in</i></th>
+                        <th>Area <i>in<sup>2</sup></i></th>
+                        <th>ρ</th>
+                      </tr>
+                    </thead>
+                    <tbody id="rebar_table"></tbody>
+                </table>                
+            </div>
+            <div id="best_rebar" class="twipsy right" style="display:none">
+                <div class="twipsy-arrow"></div>
+                <div class="twipsy-inner">Smallest Rebar Combination</div>
+            </div>                                    
+            <div class="clearfix"></div>
+        </div>
+        
+
+    </div>
+    <footer>
+
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/mylibs/underscore.js"></script>
+  <script defer src="js/mylibs/data.js"></script>
+  <script defer src="js/mylibs/base2.js"></script>
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts-->
+
+	
+  <!-- Change UA-XXXXX-X to be your site's ID -->
+  <script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>
